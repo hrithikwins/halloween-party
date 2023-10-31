@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.1.0/dist/tailwind.min.css" rel="stylesheet">
+    <style>
+        body {
+            background: url('https://images.pexels.com/photos/18831789/pexels-photo-18831789/free-photo-of-close-up-of-two-pumpkins.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1') no-repeat center center fixed;
+            background-size: cover;
+        }
+
+        .container {
+            background-color: rgba(0, 0, 0, 0.7);
+            padding: 20px;
+            border-radius: 10px;
+        }
+
+        .form-container {
+            animation: fadeIn 2s;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+
+            to {
+                opacity: 1;
+            }
+        }
+    </style>
+</head>
+
+<body class="bg-black text-white" >
+    <div class="min-h-screen flex items-center justify-center">
+        <div class="text-left container">
+            <h1 class="text-3xl font-bold mb-4">Halloween Prize Claim</h1>
+            <p>1. You are getting access to private only invited discord thread alpha testers for new game development directly in blender using hubs behavior graph</p>
+            <p>2. A comprehensive 10 months access to your custom-domain hosted hubs with a CCU limit of 20users and many cool features like custom UI, custom avatars, custom components and lot more from our Anonymous Sponsors</p>
+            <p>Enter your Discord username to claim your prize.</p>
+
+            <div class="form-container mt-4">
+                <form name="prize-form" role="form"  method="post" data-netlify="true">
+                    <input type="text" name="discord-username" class="rounded-lg px-2 py-1 mt-2 focus:outline-none text-black" placeholder="Discord Username" required>
+                    <button type="submit" class="bg-orange-500 text-white rounded-lg px-4 py-2 mt-2 hover:bg-orange-600">Submit</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.1.0/dist/tailwind.min.css" rel="stylesheet">
+    <style>
+        body {
+            background: url('https://images.pexels.com/photos/5607359/pexels-photo-5607359.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2') no-repeat center center fixed;
+            background-size: cover;
+        }
+
+        .container {
+            background-color: rgba(0, 0, 0, 0.7);
+            padding: 20px;
+            border-radius: 10px;
+        }
+
+        #password-form {
+            animation: fadeIn 2s;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+
+            to {
+                opacity: 1;
+            }
+        }
+
+        #message {
+            animation: slideIn 2s;
+        }
+
+        @keyframes slideIn {
+            from {
+                transform: translateY(-100px);
+            }
+
+            to {
+                transform: translateY(0);
+            }
+        }
+    </style>
+</head>
+
+<body class="bg-black text-white">
+    <div class="min-h-screen flex items-center justify-center">
+        <div class="text-center container">
+            <h1 class="text-3xl font-bold mb-4">Halloween Treasure Hunt</h1>
+            <p>
+                Since you've made it till here, you're already exceptional in hunting,<br/>Next step is
+                to enter the treasure hunt keyword/password for a chance to win a prize to Discord.</p>
+
+            <form id="password-form">
+                <input type="text" id="password" class="rounded-lg px-2 py-1 mt-2 focus:outline-none text-black"  placeholder="Enter Password">
+                <button type="submit" class="bg-orange-500 text-white rounded-lg px-4 py-2 mt-2 hover:bg-orange-600 text-black">Submit</button>
+            </form>
+
+            <div id="message" class="mt-4"></div>
+            <div class="flex justify-center">
+
+            <a href="./prize.html" id="revealButton" class="hidden bg-red-600 w-auto border-4  px-8 py-2">Reveal Prize</a>
+            </div>
+        </div>
+    </div>
+    <p class="fixed bottom-0 left-0 right-0 text-center bg-red-400">By the Hubs Community Members <br/> Special mentions to JTee, Imaginer, Heather, Mira Musank, HealerPaula and ... MichaelMorran, JimC from Hubs Team</p>
+
+    <script>
+        // JavaScript to handle password entry and validation
+        const passwordForm = document.getElementById('password-form');
+        const passwordInput = document.getElementById('password');
+        const message = document.getElementById('message');
+        const revealButton = document.getElementById('revealButton');
+        const correctPassword = 'CRYSTAL';
+        let chances = 3;
+
+        passwordForm.addEventListener('submit', function (e) {
+            e.preventDefault();
+            const enteredPassword = passwordInput.value.toUpperCase();
+
+            if (enteredPassword === correctPassword) {
+                message.textContent = "Congratulations! You've won a prize to Discord!";
+                revealButton.classList.remove("hidden")
+                passwordInput.disabled = true;
+            } else {
+                chances--;
+                if (chances > 0) {
+                    message.textContent = `Incorrect password. You have ${chances} chances left.`;
+                } else {
+                    message.textContent = "Sorry, you've run out of chances. Please try again later.";
+                    passwordInput.disabled = true;
+                }
+            }
+        });
+    </script>
+</body>
+
+</html>
